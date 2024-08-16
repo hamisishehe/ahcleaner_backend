@@ -1,14 +1,13 @@
-# Use the official OpenJDK image as the base image
-FROM openjdk:17-jdk-slim
-
-# Set the working directory inside the container
+FROM maven:3.8.3-openjdk-17 AS build
 WORKDIR /app
+COPY . /app/
+RUN mvn clean package
 
-# Copy the packaged jar file into the container at /app
-COPY target/ahhomeservice-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port 8080
+#
+# Package stage
+#
+FROM openjdk:17-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/app.jar
 EXPOSE 8080
-
-# Set the default command to run the jar file
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
