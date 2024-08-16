@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the packaged jar file into the container at /app
-COPY target/your-app-name.jar app.jar
+COPY target/ahhomeservice-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
