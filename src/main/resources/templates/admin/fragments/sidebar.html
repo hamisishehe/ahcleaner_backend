@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
@@ -13,7 +15,7 @@
                 <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" th:text="${currentuser}" class="d-block"></a>
             </div>
         </div>
 
@@ -34,7 +36,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/categories" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-adjust nav-icon"></i>
                         <p>
                             Categories
                         </p>
@@ -43,7 +45,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/subcategories" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-adjust nav-icon"></i>
                         <p>
                             Sub Categories
                         </p>
@@ -53,7 +55,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/services" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-bolt nav-icon"></i>
                         <p>
                             Services
                         </p>
@@ -62,7 +64,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/payments" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-money-bill nav-icon"></i>
                         <p>
                             Payments
                         </p>
@@ -71,7 +73,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/settings" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-cog nav-icon"></i>
                         <p>
                             Settings
                         </p>
@@ -80,7 +82,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/users" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-users nav-icon"></i>
                         <p>
                             Users
                         </p>
@@ -89,7 +91,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/service-provider" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
+                        <i class="fa fa-users-cog nav-icon"></i>
                         <p>
                             Service Providers
                         </p>
@@ -99,7 +101,7 @@
 
                 <li class="nav-item">
                     <a href="/admin/bookings" class="nav-link">
-                        <i class="nav-icon fas fa-times-circle"></i>
+                        <i class="nav-icon fa fa-book"></i>
                         <p>
                             Bookings
 
@@ -110,7 +112,7 @@
 
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/admin/logout" class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             Logout

@@ -20,6 +20,11 @@ public class ServiceProviderService {
         return serviceProviderRepository.findAll();
     }
 
+    public Long countall(){
+        Long counts = serviceProviderRepository.count();
+        return counts;
+    }
+
     public ServiceProvider save(ServiceProvider serviceProvider){
         serviceProvider.setStatus(ServiceProvider.Status.ONLINE);
         serviceProvider.setRating(4.5);

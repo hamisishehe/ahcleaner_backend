@@ -3,6 +3,7 @@ package org.example.ahhomeservice.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -23,6 +24,8 @@ public class ServiceProvider {
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+
 
 
    public enum Status{

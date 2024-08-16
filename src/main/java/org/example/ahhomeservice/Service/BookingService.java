@@ -33,6 +33,11 @@ public class BookingService {
         return bookingRepository.findByUser_Id(userid);
     }
 
+    public Long countall(){
+        Long count = bookingRepository.count();
+        return count;
+    }
+
     public List<Booking> getallbooking() {
         return bookingRepository.findAll();
     }

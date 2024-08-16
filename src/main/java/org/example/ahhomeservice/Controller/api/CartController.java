@@ -25,8 +25,8 @@ public class CartController {
         return cartService.getall(id);
     }
 
-    @PostMapping("/api/deletecart/{id}")
-    public void delete(@PathVariable Long id){
+    @PostMapping("/api/deletecart")
+    public void delete(@RequestParam Long id){
         cartService.delete(id);
     }
 

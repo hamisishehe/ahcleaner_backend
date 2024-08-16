@@ -4,6 +4,7 @@ package org.example.ahhomeservice.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -22,6 +23,7 @@ public class SubCategory {
 
     @Column(nullable = false)
     private  String subcat_description;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id")

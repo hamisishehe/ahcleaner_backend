@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.example.ahhomeservice.Model.Category;
 import org.example.ahhomeservice.Repository.CategoryRepository;
 import org.example.ahhomeservice.Service.CategoryService;
+import org.example.ahhomeservice.Service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
@@ -26,6 +27,9 @@ public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     @GetMapping("/admin/categories")
     public String categories(Model model) {
         List<Category> categories = categoryService.allcategories();
@@ -42,6 +46,10 @@ public class CategoryController {
         }
         categoryService.saveCategory(category, file);
         model.addAttribute("successMessage", "Category added successfully!");
+
+        String token = "eSlmT83JQcGQ4qCzAfI8os:APA91bEOzrdjzustVFNH04i8N-pWSgj7SdKqQMhTFn7NnC24DYau0OLHm_drk0rwWZnc2HQfCTDngKEWCakj8Ib0RZZodqTScE5drj_3R2GILhzrRHSJM5kTDfmlUFi-4hfKguNAZ4CY"; // You should fetch the actual token from the database or request
+        notificationService.sendNotification("New Data Inserted", "Data has been successfully inserted.", token);
+
         return "redirect:/admin/categories";
     }
 

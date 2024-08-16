@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     }
 
+    public User userbyemail(String email){
+        Optional<User> user = userRepository.findByEmail(email);
+        return user.orElse(null);
+    }
+
     @Override
     public List<Object> isUserPresent(User user) {
         return List.of();

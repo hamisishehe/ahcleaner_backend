@@ -12,9 +12,12 @@ import java.time.LocalDateTime;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
     private String title;
+
+    private String image;
 
     private String description;
 
@@ -24,7 +27,4 @@ public class Notification {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
 }

@@ -4,10 +4,8 @@ package org.example.ahhomeservice.Controller.api;
 import org.example.ahhomeservice.Model.User;
 import org.example.ahhomeservice.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -26,5 +24,11 @@ public class UserControllerApi {
     @GetMapping("/api/userDetails/{email}")
     public Optional<User> getuserDetails(@PathVariable  String email){
         return userService.userDetails(email);
+    }
+
+    @PostMapping("/api/user")
+    public ResponseEntity<Optional<User>> userdetails(@RequestParam String email){
+        Optional<User> user = userService.userDetails(email);
+        return ResponseEntity.ok(user);
     }
 }

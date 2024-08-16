@@ -31,9 +31,9 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3 th:text="${booking}"></h3>
 
-                            <p>New Bookings</p>
+                            <p>Bookings</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -76,8 +76,9 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
+                            <h3 th:text="${users}">53<sup style="font-size: 20px">%</sup></h3>
 
-                            <p>User Registrations</p>
+                            <p>Total Users</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -93,6 +94,21 @@
                             <h3 th:text="${subcategories}">53<sup style="font-size: 20px">%</sup></h3>
 
                             <p>Sub Categories</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="/admin/subcategories" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-cyan">
+                        <div class="inner">
+                            <h3 th:text="${serviceprovider}">53<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>Service Providers</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
@@ -165,7 +181,7 @@
                                 <!-- Message. Default to the left -->
                                 <div class="direct-chat-msg">
                                     <div class="direct-chat-infos clearfix">
-                                        <span class="direct-chat-name float-left">Alexander Pierce</span>
+                                        <span class="direct-chat-name float-left"></span>
                                         <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                                     </div>
                                     <!-- /.direct-chat-infos -->

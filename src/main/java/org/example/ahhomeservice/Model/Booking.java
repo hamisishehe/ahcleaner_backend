@@ -4,6 +4,7 @@ package org.example.ahhomeservice.Model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Set;
 
@@ -39,6 +40,12 @@ public class Booking {
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentstatus;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
 
     public enum Status{
         PENDING,
@@ -79,9 +86,6 @@ public class Booking {
 
     @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Payment> payments;
-
-    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Notification> notifications;
 
 
     @OneToMany(mappedBy = "booking",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
